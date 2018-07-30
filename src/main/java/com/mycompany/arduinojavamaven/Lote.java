@@ -17,12 +17,12 @@ import manejodedatos.ManejoDatos;
  */
 public class Lote {
 
-    String uso = "";
+    private String uso = "";
     private boolean estado;
     private boolean comparar;
 //    private static ArrayList listeners;
     private ManejoDatos md;
-
+    private String nombre;
     public Lote() {
         estado = false;
 //        listeners = new ArrayList<>();

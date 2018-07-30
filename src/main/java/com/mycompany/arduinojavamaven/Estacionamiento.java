@@ -5,6 +5,7 @@
  */
 package com.mycompany.arduinojavamaven;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -48,7 +49,7 @@ public class Estacionamiento {
 //
 //    }
 
-    public void actualizarEstado(int pos, int valorConexion) {
+    public void actualizarEstado(int pos, int valorConexion) throws IOException {
 //        System.out.println("actualizando estado");
         lotes.get(pos).setEstado(valorConexion);
     }
