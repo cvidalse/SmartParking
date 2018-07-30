@@ -6,6 +6,7 @@
 package com.mycompany.arduinojavamaven;
 
 import com.panamahitek.*;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jssc.*;
@@ -35,6 +36,8 @@ public class ConexionArduino extends javax.swing.JFrame {
             } catch (SerialPortException ex) {
                 Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ArduinoException ex) {
+                Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
                 Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
