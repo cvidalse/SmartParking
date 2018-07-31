@@ -26,7 +26,7 @@ public class SmartParking {
         
         ConexionArduino conect = new ConexionArduino(est);
         
-        pr.setVisible(true);
+        //pr.setVisible(true);
 
 
     }

@@ -28,6 +28,15 @@ public class Lote {
 //        listeners = new ArrayList<>();
         md = new ManejoDatos();
     }
+    
+    public Lote(String nombre) {
+        this.nombre=nombre;
+        
+        estado = false;
+//        listeners = new ArrayList<>();
+        md = new ManejoDatos();
+    }
+    
 
 //    public void addEventListener(ChangeEvent listener) {
 //        listeners.add(listener);
@@ -41,6 +50,7 @@ public class Lote {
         if (entrada == 1) {//numero 1 en ascii
             comparar = true;
             if (this.estado != comparar) {
+                this.uso += ""+nombre+" ";
                 java.util.Date fecha = new Date();
                 this.uso += "Fecha ingreso " + fecha;
             }
@@ -53,6 +63,7 @@ public class Lote {
             comparar = false;
             if (this.estado != comparar) {
                 java.util.Date fecha = new Date();
+                
                 this.uso += " Fecha salida " + fecha;
                 md.aniadirArchivo(uso, "C:\\Users\\Ce\\Desktop\\taller\\ejemplo.txt");
                 this.uso = "";

@@ -9,6 +9,8 @@ import com.panamahitek.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import jssc.*;
 
 /**
@@ -24,14 +26,12 @@ public class ConexionArduino extends javax.swing.JFrame {
         public void serialEvent(SerialPortEvent spe) {
             try {
                 if (ph.isMessageAvailable()) {
-                    
-//                  System.out.println(ph.printMessage());
-                 String mensaje1 = ph.printMessage();
-//                  System.out.println(mensaje1);
-                    est.actualizarEstado(0, Integer.parseInt(mensaje1));
 
-//                    ph.receiveData();
-//                    System.out.println(ph.printMessage());
+                    String mensaje1 = ph.printMessage();
+                    System.out.println(mensaje1);
+                    patron(mensaje1);
+
+//                    est.actualizarEstado(0, Integer.parseInt(mensaje1));
                 }
             } catch (SerialPortException ex) {
                 Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,18 +42,9 @@ public class ConexionArduino extends javax.swing.JFrame {
             }
         }
     };
-    
 
-//    static SerialPort serialPort;
-//    public void openPorts() throws SerialPortException {
-//       
-//        serialPort = new SerialPort(puerto);
-//        serialPort.openPort();
-//        serialPort.setParams(9600, 8, 1, 0);
-//        throw new SerialPortException("asdas","adas","dasda");
-//    }
     public ConexionArduino(Estacionamiento estacionamiento) {
-           est = estacionamiento;
+        est = estacionamiento;
         try {
 
             ph.arduinoRX("COM10", 9600, events);
@@ -64,4 +55,34 @@ public class ConexionArduino extends javax.swing.JFrame {
         }
 
     }
+
+    private void patron(String mensaje) throws IOException {
+        Pattern pattern = Pattern.compile("(([\\d]?[\\d])([\\d]?[\\d])([\\d]?[\\d]))");
+        Matcher buscar = pattern.matcher(mensaje);
+        System.out.println("match");
+        System.out.println(buscar.groupCount());
+
+        if (buscar.matches()) {
+            for (int i = 0; i <= buscar.groupCount(); i++) {
+                System.out.println(buscar.group(i));
+                pattern2(buscar.group(i));
+
+            }
+        }
+
+    }
+
+    private void pattern2(String group) throws IOException {
+        System.out.println("aqui");
+
+        Pattern pattern = Pattern.compile("([\\d])?([\\d])");
+        Matcher buscar = pattern.matcher(group);
+        if (buscar.matches()) {
+            System.out.println("cambiando" + buscar.group(1) + "con" + buscar.group(2));
+            est.actualizarEstado(Integer.parseInt(buscar.group(1)), Integer.parseInt(buscar.group(2)));
+        }else{
+        System.out.println("gg");
+        }
+    }
+
 }

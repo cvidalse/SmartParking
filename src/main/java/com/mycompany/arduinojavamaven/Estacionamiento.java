@@ -20,26 +20,33 @@ public class Estacionamiento {
     public Estacionamiento() {
         lotes = new ArrayList<>();
         cambio = new ArrayList<>();
-        llenadoTotal();
+        llenadoTotalNombre();
         copiarEstado();
     }
+
     
-    private void llenadoTotal(){
-    for(int i = 0; i<21;i++){
-    addLote();
-    }
+    private void llenadoTotalNombre(){
+            for (int i = 0; i < 21; i++) {
+            addLoteNombre("A"+i);
+        }
     }
     
+    
+    private void llenadoTotal() {
+        for (int i = 0; i < 21; i++) {
+            addLote();
+        }
+    }
+
     public void copiarEstado() {
         for (int i = 0; i < lotes.size(); i++) {
             cambio.add(i, lotes.get(i).getEstado());
             System.out.println("copiado " + lotes.get(i).getEstado());
-            System.out.println("copiando");
+
         }
 //      cambio.add(true);
 
     }
-
 
     public void actualizarEstado(int pos, int valorConexion) throws IOException {
 //        System.out.println("actualizando estado");
@@ -49,6 +56,10 @@ public class Estacionamiento {
     private void addLote() {
         lotes.add(new Lote());
 
+    }
+
+    private void addLoteNombre(String nombre) {
+        lotes.add(new Lote(nombre));
     }
 
 }
