@@ -65,6 +65,7 @@ public class Lote {
                 java.util.Date fecha = new Date();
                 
                 this.uso += " Fecha salida " + fecha;
+                //aqui agregar el resultado del calculo de diferencia de hora? 
                 md.aniadirArchivo(uso, "C:\\Users\\Ce\\Desktop\\taller\\ejemplo.txt");
                 this.uso = "";
             }
