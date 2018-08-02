@@ -8,6 +8,10 @@ package gui;
 import com.mycompany.arduinojavamaven.Estacionamiento;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -21,7 +25,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
     private Container contenido;
     Estacionamiento est;
 
-   public GuiPrincipal(Estacionamiento estacionamiento) {
+    public GuiPrincipal(Estacionamiento estacionamiento) {
         super();
         est = estacionamiento;
         configuracionVentana();
@@ -53,6 +57,13 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         imagen.setBounds(273, 48, 252, 252);
         imagen.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 //        imagen.setIcon(new ImageIcon(getClass().getResource("/imagen/testing.jpg")));
+        try {
+            imageUrl(imagen);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        version = new JLabel("v0.7");
         version = new JLabel("v0.5");
         version.setFont(new Font("Consolas", Font.ITALIC, 13));
         version.setBounds(748, 3, 29, 16);
@@ -61,6 +72,13 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         this.add(imagen);
         this.add(version);
     }
+    
+        private void imageUrl(JLabel miLabel) throws IOException {
+    	 URL url = new URL("https://raw.githubusercontent.com/cvidalse/proyectoprogramacion/master/prototipoGUI/gui/icon/testing.jpg");
+    	 BufferedImage image = ImageIO.read(url);
+    	 miLabel.setIcon(new ImageIcon(image));	
+    }
+    
 
     private void accionBoton() {
         mostrar.addActionListener(this);
@@ -86,5 +104,4 @@ public class GuiPrincipal extends JFrame implements ActionListener {
 //        @SuppressWarnings("unused")
 //        GuiPrincipal gui = new GuiPrincipal(est);
 //    }
-
 }
