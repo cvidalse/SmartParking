@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ListIterator;
+import manejodedatos.CalcularEstadia;
 import manejodedatos.ManejoDatos;
 
 /**
@@ -65,6 +66,8 @@ public class Lote {
                 java.util.Date fecha = new Date();
                 
                 this.uso += " Fecha salida " + fecha;
+                
+                this.uso += CalcularEstadia.calcular (this.uso);
                 //aqui agregar el resultado del calculo de diferencia de hora? 
                 md.aniadirArchivo(uso, "C:\\Users\\Ce\\Desktop\\taller\\ejemplo.txt");
                 this.uso = "";
