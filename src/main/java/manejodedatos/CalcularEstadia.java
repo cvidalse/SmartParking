@@ -261,11 +261,8 @@ public class CalcularEstadia {
             ajustarSegundo(mesSalida);
             
             //resultado
-            String tiempoEstadia = "El tiempo de estadia fue de " + diaEstadia + " dia(s) con " + horaEstadia + " hora(s) con " + minutoEstadia + " minuto(s) y " + segundoEstadia + " segundo(s)";
+            String tiempoEstadia = " Su estadia fue de " + diaEstadia + " dia(s) con " + horaEstadia + " : " + minutoEstadia + " : " + segundoEstadia + " : ";
     
             return tiempoEstadia;
         }
   }
-    
-
-
