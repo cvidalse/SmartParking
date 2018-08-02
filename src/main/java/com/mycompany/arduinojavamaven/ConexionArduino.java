@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import jssc.*;
 
 /**
@@ -49,7 +50,7 @@ public class ConexionArduino extends javax.swing.JFrame {
 
             ph.arduinoRX("COM10", 9600, events);
         } catch (ArduinoException AE) {
-            System.out.println("fallo al crear la conexion");
+             JOptionPane.showMessageDialog(this, "La conexión a Arduino esta ausente");
         } catch (SerialPortException ex) {
             Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -52,7 +52,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         imagen = new JLabel();
         imagen.setBounds(273, 48, 252, 252);
         imagen.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-        imagen.setIcon(new ImageIcon(GuiPrincipal.class.getResource("/imagen/testing.jpg")));
+//        imagen.setIcon(new ImageIcon(getClass().getResource("/imagen/testing.jpg")));
         version = new JLabel("v0.5");
         version.setFont(new Font("Consolas", Font.ITALIC, 13));
         version.setBounds(748, 3, 29, 16);
