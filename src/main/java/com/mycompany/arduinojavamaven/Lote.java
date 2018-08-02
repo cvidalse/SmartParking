@@ -74,38 +74,6 @@ public class Lote {
 
         }
 
-    }
+    }}
 
-//    @Override
-//    public void enEstado(ChangeEvent ev) {
-//        java.util.Date fecha = new Date();
-//        this.uso = "" + fecha;
-//    }
-//    @Override
-//    public void enOcupado(ChangeEvent ev) {
-//        java.util.Date fecha = new Date();
-//        this.uso += "" + fecha;
-//        md.archivo(uso);
-//        this.uso = "";
-//    }
-//
-//    private void triggerEnEstadoEvent() {
-//
-//        ListIterator li = listeners.listIterator();
-//        while (li.hasNext()) {
-//            cambioEstado listener = (cambioEstado) li.next();
-//            ChangeEvent readerEvObj = new ChangeEvent(this, this);
-//            (listener).enEstado(readerEvObj);
-//        }
-//    }
-//
-//    private void triggerOcupadoEvent() {
-//
-//        ListIterator li = listeners.listIterator();
-//        while (li.hasNext()) {
-//            cambioEstado listener = (cambioEstado) li.next();
-//            ChangeEvent readerEvObj = new ChangeEvent(this, this);
-//            (listener).enOcupado(readerEvObj);
-//        }
-//    }
-}
+
