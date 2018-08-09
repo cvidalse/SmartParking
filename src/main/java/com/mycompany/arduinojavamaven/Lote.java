@@ -69,7 +69,7 @@ public class Lote {
                 
                 this.uso += CalcularEstadia.calcular (this.uso);
                 //aqui agregar el resultado del calculo de diferencia de hora? 
-                md.aniadirArchivo(uso, "C:\\Users\\Ce\\Desktop\\taller\\ejemplo.txt");
+                md.aniadirArchivo(uso);
                 this.uso = "";
             }
             this.estado = false;

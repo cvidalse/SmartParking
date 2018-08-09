@@ -18,10 +18,11 @@ import java.io.IOException;
 public class ManejoDatos {
 
 
-     public  void aniadirArchivo(String lista, String Path) {
+     public  void aniadirArchivo(String lista) throws IOException {
         FileWriter flwriter = null;
+        
         try {//además de la ruta del archivo recibe un parámetro de tipo boolean, que le indican que se va añadir más registros 
-            flwriter = new FileWriter(Path, true);
+           flwriter = new FileWriter("registro.txt",true);
             BufferedWriter bfwriter = new BufferedWriter(flwriter);
             
                 bfwriter.write(lista);
