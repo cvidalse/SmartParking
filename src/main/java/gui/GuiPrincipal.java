@@ -36,7 +36,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    private void configuracionVentana() {
+    private void configuracionVentana() {//configura ventana
         this.setTitle("Smart Parking");
         this.setBounds(100, 100, 788, 479);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(GuiPrincipal.class.getResource("/javax/swing/plaf/metal/icons/ocean/computer.gif")));
@@ -46,7 +46,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private void inicioComponentes() {
+    private void inicioComponentes() {//inicia los componentes
         mostrar = new JButton();
         mostrar.setText("Mostrar Estacionamiento");
         mostrar.setBounds(305, 313, 184, 63);
@@ -73,7 +73,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         this.add(version);
     }
     
-        private void imageUrl(JLabel miLabel) throws IOException {
+        private void imageUrl(JLabel miLabel) throws IOException {//descarga la imagen desde el servidor
     	 URL url = new URL("https://raw.githubusercontent.com/cvidalse/proyectoprogramacion/master/prototipoGUI/gui/icon/testing.jpg");
     	 BufferedImage image = ImageIO.read(url);
     	 miLabel.setIcon(new ImageIcon(image));	
@@ -84,7 +84,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         mostrar.addActionListener(this);
         contacto.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(ActionEvent arg0) {//muestra la informacion de contacto
                 JOptionPane.showMessageDialog(contenido,
                         "c.vidal09@ufromail.cl\nm.bustos06@ufromail.cl\ns.robles01@ufromail.cl",
                         "Contacto",
@@ -94,7 +94,7 @@ public class GuiPrincipal extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent arg0) {
+    public void actionPerformed(ActionEvent arg0) {//muestra la guiEstacionamiento
         @SuppressWarnings("unused")
         GuiEstacionamiento estacionamiento = new GuiEstacionamiento(est);
         this.dispose();
