@@ -234,20 +234,20 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
         volver.addActionListener(this);
         actualizar.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(ActionEvent arg0) {//cuando se preciona el boton actualizar se copia el estado actual de los Lotes y luego se cambian los colores con el metodo botonActualizar
                 est.copiarEstado();
                 est.botonActualizar(est.cambio, espacio);
 
-//                                  boolean verdadera = true;
-                for (int i = 0; i < espacio.size(); i++) {
-                    if (est.cambio.get(i)) {
-                        espacio.get(i).setBackground(SystemColor.textHighlight);
-//                    test.setBackground(Color.RED);
-                    } else {
-                        espacio.get(i).setBackground(SystemColor.activeCaptionBorder);
 
-                    }
-                }
+//                for (int i = 0; i < espacio.size(); i++) {
+//                    if (est.cambio.get(i)) {
+//                        espacio.get(i).setBackground(SystemColor.textHighlight);
+//
+//                    } else {
+//                        espacio.get(i).setBackground(SystemColor.activeCaptionBorder);
+//
+//                    }
+//                }
             }
 
 
@@ -261,9 +261,6 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
         this.dispose();
     }
 
-    public static void main(String[] args){
-    Estacionamiento esta= new Estacionamiento();
-    GuiEstacionamiento gui = new GuiEstacionamiento(esta);
-    }
+
     
 }
