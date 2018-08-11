@@ -250,27 +250,7 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
                 }
             }
 
-//                testing.setColor(panel_1);
-//                testing.setColor(panel_2);
-//                testing.setColor(panel_3);
-//                testing.setColor(panel_4);
-//                testing.setColor(panel_5);
-//                testing.setColor(panel_6);
-//                testing.setColor(panel_7);
-//                testing.setColor(panel_8);
-//                testing.setColor(panel_9);
-//                testing.setColor(panel_10);
-//                testing.setColor(panel_11);
-//                testing.setColor(panel_12);
-//                testing.setColor(panel_13);
-//                testing.setColor(panel_14);
-//                testing.setColor(panel_15);
-//                testing.setColor(panel_16);
-//                testing.setColor(panel_17);
-//                testing.setColor(panel_18);
-//                testing.setColor(panel_19);
-//                testing.setColor(panel_20);
-//                testing.setColor(panel_21);
+
         });
     }
 
