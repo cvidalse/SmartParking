@@ -1,1 +1,2 @@
-Fecha ingresoTue Jul 24 13:39:30 CLT 2018Fecha salidaTue Jul 24 13:39:37 CLT 2018
+A12 Fecha ingreso Thu Aug 09 12:36:03 CLT 2018 Fecha salida Thu Aug 09 12:36:23 CLT 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 20
+A12 Fecha ingreso Thu Aug 09 12:37:25 CLT 2018 Fecha salida Thu Aug 09 12:37:26 CLT 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 1

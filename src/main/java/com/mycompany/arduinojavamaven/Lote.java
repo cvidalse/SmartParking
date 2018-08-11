@@ -21,62 +21,55 @@ public class Lote {
     private String uso = "";
     private boolean estado;
     private boolean comparar;
-//    private static ArrayList listeners;
+
     private ManejoDatos md;
     private String nombre;
+
     public Lote() {
         estado = false;
-//        listeners = new ArrayList<>();
+
         md = new ManejoDatos();
     }
-    
+
     public Lote(String nombre) {
-        this.nombre=nombre;
-        
+        this.nombre = nombre;
+
         estado = false;
 //        listeners = new ArrayList<>();
         md = new ManejoDatos();
     }
-    
 
-//    public void addEventListener(ChangeEvent listener) {
-//        listeners.add(listener);
-//    }
     public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(int entrada) throws IOException {
-
-        if (entrada == 1) {//numero 1 en ascii
-            comparar = true;
-            if (this.estado != comparar) {
-                this.uso += ""+nombre+" ";
+    public void setEstado(int entrada) throws IOException {//recibe los valores 0 e 1 los cuales asocia a true o false, 1==true, 0==fale
+        //de igual forma se hace cargo del ingreseo de las fechas de entrada y salida
+        if (entrada == 1) {//entrada o salida
+            comparar = true;//utilizado para detectar el cambio de estado de un lote e ingresar la fecha de llegada
+            if (this.estado != comparar) {//si comparar y el estado actual del lote son distintos significa que la fecha de ingreso debe ser guardada
+                this.uso += "" + nombre + " ";
                 java.util.Date fecha = new Date();
                 this.uso += "Fecha ingreso " + fecha;
             }
 
-            this.estado = true;
-
-            System.out.println(estado);
-//            System.out.println("ocupado");
+            this.estado = true;//se cambia a true
         } else {
             comparar = false;
-            if (this.estado != comparar) {
+            if (this.estado != comparar) {//si comparar y el estado actual del lote son distintos significa que la fecha de salida debe ser guardada
                 java.util.Date fecha = new Date();
-                
-                this.uso += " Fecha salida " + fecha;
-                
-                this.uso += CalcularEstadia.calcular (this.uso);
-                //aqui agregar el resultado del calculo de diferencia de hora? 
-                md.aniadirArchivo(uso);
+
+                this.uso += " Fecha salida " + fecha;//luego de que ambas, la fecha de salida como la de entrada se encuentran calculadas se ejecuta el metodo calcular del manejo de datos y se agrega al String generado
+
+                this.uso += CalcularEstadia.calcular(this.uso);
+               
+                md.aniadirArchivo(uso);//se envia al metodo aniadirArchivo para su guardado
                 this.uso = "";
             }
-            this.estado = false;
-//            System.out.println("desocupado");
+            this.estado = false;//se cambia el estado del Lote
+
 
         }
 
-    }}
-
-
+    }
+}

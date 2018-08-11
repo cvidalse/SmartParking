@@ -40,7 +40,7 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
     private Estacionamiento est;
     private JLabel lblOcupado;
     private JLabel lblDisponible;
-    private ArrayList<JPanel> espacio; 
+    private ArrayList<JPanel> espacio;
 
     public GuiEstacionamiento(Estacionamiento estacionamiento) {
         super();
@@ -234,20 +234,21 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
         actualizar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                    est.copiarEstado();
-                               
-                                 
-//                                  boolean verdadera = true;
-                for(int i=0;i<espacio.size();i++){
-                if (est.cambio.get(i)) {
-                    espacio.get(i).setBackground(SystemColor.textHighlight);
-//                    test.setBackground(Color.RED);
-                } else {
-                    espacio.get(i).setBackground(SystemColor.activeCaptionBorder);
+                est.copiarEstado();
+                est.botonActualizar(est.cambio, espacio);
 
+//                                  boolean verdadera = true;
+                for (int i = 0; i < espacio.size(); i++) {
+                    if (est.cambio.get(i)) {
+                        espacio.get(i).setBackground(SystemColor.textHighlight);
+//                    test.setBackground(Color.RED);
+                    } else {
+                        espacio.get(i).setBackground(SystemColor.activeCaptionBorder);
+
+                    }
                 }
-            }}
-       
+            }
+
 //                testing.setColor(panel_1);
 //                testing.setColor(panel_2);
 //                testing.setColor(panel_3);
@@ -269,7 +270,6 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
 //                testing.setColor(panel_19);
 //                testing.setColor(panel_20);
 //                testing.setColor(panel_21);
-            
         });
     }
 

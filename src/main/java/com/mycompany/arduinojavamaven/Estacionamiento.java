@@ -5,8 +5,10 @@
  */
 package com.mycompany.arduinojavamaven;
 
+import java.awt.SystemColor;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,32 +26,26 @@ public class Estacionamiento {
         copiarEstado();
     }
 
-    
-    private void llenadoTotalNombre(){
-            for (int i = 0; i < 21; i++) {
-            addLoteNombre("A"+i);
+    private void llenadoTotalNombre() {//crea los lotes y sus respectivos nombres
+        for (int i = 0; i < 21; i++) {
+            addLoteNombre("A" + i);
         }
     }
-    
-    
-    private void llenadoTotal() {
+
+    private void llenadoTotal() {//crea lotes sin nombres
         for (int i = 0; i < 21; i++) {
             addLote();
         }
     }
 
-    public void copiarEstado() {
+    public void copiarEstado() {//obtiene el estado de los lotes, para trabajar en tiempos distintos el estado real y el que aparece en pantalla
         for (int i = 0; i < lotes.size(); i++) {
-            cambio.add(i, lotes.get(i).getEstado());
-            System.out.println("copiado " + lotes.get(i).getEstado());
-
+            cambio.add(i, lotes.get(i).getEstado());//los que obtienen es un Boolean false si esta disponible y true si esta ocupado
         }
-//      cambio.add(true);
 
     }
 
-    public void actualizarEstado(int pos, int valorConexion) throws IOException {
-//        System.out.println("actualizando estado");
+    public void actualizarEstado(int pos, int valorConexion) throws IOException {//recibe los datos desde coneccion arduino, el pin asociado al numero del lote, y el valor de lectura
         lotes.get(pos).setEstado(valorConexion);
     }
 
@@ -62,4 +58,16 @@ public class Estacionamiento {
         lotes.add(new Lote(nombre));
     }
 
+    public void botonActualizar(ArrayList<Boolean> camb, ArrayList<JPanel> labels) {//generado para utilizar cuando se pulse el boton actualiza en la ventana Estacionamiento
+        for (int i = 0; i < labels.size(); i++) {
+            if (cambio.get(i)) {
+                labels.get(i).setBackground(SystemColor.textHighlight);
+//                    test.setBackground(Color.RED);
+            } else {
+                labels.get(i).setBackground(SystemColor.activeCaptionBorder);
+
+            }
+        }
+
+    }
 }

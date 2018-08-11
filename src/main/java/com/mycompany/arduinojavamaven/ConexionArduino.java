@@ -22,8 +22,8 @@ public class ConexionArduino extends javax.swing.JFrame {
 
     String[] valores = new String[3];
     private Estacionamiento est;
-    static private PanamaHitek_Arduino ph = new PanamaHitek_Arduino();
-    SerialPortEventListener events = new SerialPortEventListener() {
+    static private PanamaHitek_Arduino ph = new PanamaHitek_Arduino();//biblioteca panamaHitek para crear la coneccion
+    SerialPortEventListener events = new SerialPortEventListener() {//depecta los eventos en el puerto serial osea los mensajes de arduinos
         @Override
         public void serialEvent(SerialPortEvent spe) {
             try {
@@ -31,7 +31,7 @@ public class ConexionArduino extends javax.swing.JFrame {
 
                     String mensaje1 = ph.printMessage();
                     System.out.println(mensaje1);
-                    
+
                     recorrerNumeros(split(mensaje1));
 
 //                    est.actualizarEstado(0, Integer.parseInt(mensaje1));
@@ -46,12 +46,12 @@ public class ConexionArduino extends javax.swing.JFrame {
         }
     };
 
-    public ConexionArduino(Estacionamiento estacionamiento) {
+    public ConexionArduino(Estacionamiento estacionamiento) {//crea la conexion a arduinos de lo contrario lanza un error por pantalla
         est = estacionamiento;
         try {
 
-            ph.arduinoRX("COM10", 9600, events);
-        } catch (ArduinoException AE) {
+            ph.arduinoRX("COM6", 9600, events);//primero el puerto en el que se ejecuta, segundo el rate de actualizacion y luego el lector de eventos creado mas arriba
+        } catch (ArduinoException AE) {//arduino exception cuando la coneccion falla
             JOptionPane.showMessageDialog(this, "La conexión a Arduino esta ausente");
         } catch (SerialPortException ex) {
             Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,18 +59,17 @@ public class ConexionArduino extends javax.swing.JFrame {
 
     }
 
-    private String[] split(String lectura) {
+    private String[] split(String lectura) {//separa los valores de la lectura de cada pin, como solo lee 3 datos esta en este estado
         valores = lectura.split(" ", 3);
-        System.out.println(valores.toString());
         return valores;
     }
 
-    private void recorrerNumeros(String[] valores) throws IOException {
-       System.out.println( valores.length);
+    private void recorrerNumeros(String[] valores) throws IOException {//como las lecturas pueden venir de pin mayores que 10 o menores que 10 este metodo los separa de modo que aquellos menores que 10 vayan a pattern2 y los mayores a pattern3
+
         for (int i = 0; i < valores.length; i++) {
-            
+
             String medicion = valores[i];
-            
+
             if (medicion.length() == 2) {
                 pattern2(medicion);
             } else {
@@ -95,20 +94,18 @@ public class ConexionArduino extends javax.swing.JFrame {
 //        }
 //
 //    }
-
     private void pattern2(String group) throws IOException {
-//        System.out.println("normal");
-
+//separa las lecuras en pin del que proceden y valor de lectura para ser entregados al metodo actualizar estado para su posterior tratamiento
         Pattern pattern = Pattern.compile("([\\d])?([\\d])");
         Matcher buscar = pattern.matcher(group);
         if (buscar.matches()) {
-//            System.out.println("cambiando" + buscar.group(1) + "con" + buscar.group(2));
+
             est.actualizarEstado(Integer.parseInt(buscar.group(1)), Integer.parseInt(buscar.group(2)));
         }
     }
 
     private void pattern3(String group) throws IOException {
-        System.out.println("pin grande");
+        //separa las lecuras en pin del que proceden y valor de lectura para ser entregados al metodo actualizar estado para su posterior tratamiento
 
         Pattern pattern = Pattern.compile("([\\d]?[\\d])+([\\d])");
         Matcher buscar = pattern.matcher(group);
