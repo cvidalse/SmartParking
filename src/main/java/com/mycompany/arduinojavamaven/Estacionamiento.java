@@ -32,12 +32,6 @@ public class Estacionamiento {
         }
     }
 
-    private void llenadoTotal() {//crea lotes sin nombres
-        for (int i = 0; i < 21; i++) {
-            addLote();
-        }
-    }
-
     public void copiarEstado() {//obtiene el estado de los lotes, para trabajar en tiempos distintos el estado real y el que aparece en pantalla
         for (int i = 0; i < lotes.size(); i++) {
             cambio.add(i, lotes.get(i).getEstado());//los que obtienen es un Boolean false si esta disponible y true si esta ocupado
