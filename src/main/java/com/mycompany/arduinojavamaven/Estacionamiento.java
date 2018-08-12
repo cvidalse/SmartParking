@@ -42,12 +42,7 @@ public class Estacionamiento {
     public void actualizarEstado(int pos, int valorConexion) throws IOException {//recibe los datos desde coneccion arduino, el pin asociado al numero del lote, y el valor de lectura
         lotes.get(pos).setEstado(valorConexion);
     }
-
-    private void addLote() {
-        lotes.add(new Lote());
-
-    }
-
+    
     private void addLoteNombre(String nombre) {
         lotes.add(new Lote(nombre));
     }
