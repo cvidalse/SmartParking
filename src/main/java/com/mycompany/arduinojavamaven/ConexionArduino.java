@@ -22,7 +22,7 @@ public class ConexionArduino extends javax.swing.JFrame {
 
     String[] valores = new String[3];
     private Estacionamiento est;
-    static private PanamaHitek_Arduino ph = new PanamaHitek_Arduino();//biblioteca panamaHitek para crear la coneccion
+    static private PanamaHitek_Arduino ph = new PanamaHitek_Arduino();//biblioteca panamaHitek para crear la conexion
     SerialPortEventListener events = new SerialPortEventListener() {//depecta los eventos en el puerto serial osea los mensajes de arduinos
         @Override
         public void serialEvent(SerialPortEvent spe) {
@@ -45,14 +45,17 @@ public class ConexionArduino extends javax.swing.JFrame {
             }
         }
     };
+//el nombre vienen dejinodo asi no se puede cambiar
 
-    public ConexionArduino(Estacionamiento estacionamiento) {//crea la conexion a arduinos de lo contrario lanza un error por pantalla
+    public ConexionArduino(Estacionamiento estacionamiento) throws ArduinoException {//crea la conexion a arduinos de lo contrario lanza un error por pantalla
         est = estacionamiento;
         try {
 
             ph.arduinoRX("COM6", 9600, events);//primero el puerto en el que se ejecuta, segundo el rate de actualizacion y luego el lector de eventos creado mas arriba
         } catch (ArduinoException AE) {//arduino exception cuando la coneccion falla
             JOptionPane.showMessageDialog(this, "La conexión a Arduino esta ausente");
+            throw new ArduinoException("a", "b", "c");
+
         } catch (SerialPortException ex) {
             Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
         }

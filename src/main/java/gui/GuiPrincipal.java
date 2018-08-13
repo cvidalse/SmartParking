@@ -18,6 +18,11 @@ import javax.swing.border.*;
 @SuppressWarnings("serial")
 public class GuiPrincipal extends JFrame implements ActionListener {
 
+    private URL rutaImagen;
+    /**
+     * Lee la URL de la imagen
+     */
+    private BufferedImage spImagen;
     private JButton mostrar;
     private JLabel imagen;
     private JLabel version;
@@ -57,12 +62,8 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         imagen.setBounds(273, 48, 252, 252);
         imagen.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 //        imagen.setIcon(new ImageIcon(getClass().getResource("/imagen/testing.jpg")));
-        try {
-            imageUrl(imagen);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        agregarImagen();
+
         version = new JLabel("v0.7");
         version = new JLabel("v0.5");
         version.setFont(new Font("Consolas", Font.ITALIC, 13));
@@ -72,13 +73,18 @@ public class GuiPrincipal extends JFrame implements ActionListener {
         this.add(imagen);
         this.add(version);
     }
-    
-        private void imageUrl(JLabel miLabel) throws IOException {//descarga la imagen desde el servidor
-    	 URL url = new URL("https://raw.githubusercontent.com/cvidalse/proyectoprogramacion/master/prototipoGUI/gui/icon/testing.jpg");
-    	 BufferedImage image = ImageIO.read(url);
-    	 miLabel.setIcon(new ImageIcon(image));	
+
+    private void agregarImagen() {
+        try {
+            rutaImagen = new URL("https://raw.githubusercontent.com/cvidalse/proyectoprogramacion/master/prototipoGUI/gui/icon/testing.jpg");
+            spImagen = ImageIO.read(rutaImagen);
+            imagen.setIcon(new ImageIcon(spImagen));
+            this.add(imagen);
+        } catch (IOException e) {
+            imagen.setText("Imagen no disponible");
+            this.add(imagen);
+        }
     }
-    
 
     private void accionBoton() {
         mostrar.addActionListener(this);
