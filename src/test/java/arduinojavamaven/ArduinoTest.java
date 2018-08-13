@@ -19,12 +19,7 @@ import manejodedatos.ManejoDatos;
  */
 public class ArduinoTest {
     
-    @Test (expected = ArduinoException.class)
-    public void ConexionArduinoTest() throws ArduinoException{
-    Estacionamiento est = new Estacionamiento();
-    ConexionArduino conexion = new ConexionArduino(est);
-    
-    } 
+
     
     @Test (expected = java.lang.RuntimeException.class)
     public void ManejoDatosTestFallo(){
