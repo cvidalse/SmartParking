@@ -18,7 +18,7 @@ import java.io.IOException;
 public class ManejoDatos {
 
 
-     public  void aniadirArchivo(String lista) throws IOException {//agrega las lecturas al archivo de 
+     public static void aniadirArchivo(String lista) throws IOException {//agrega las lecturas al archivo de 
         FileWriter flwriter = null;
         
         try {//además de la ruta del archivo recibe un parámetro de tipo boolean, que le indican que se va añadir más registros 

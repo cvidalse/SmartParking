@@ -6,10 +6,12 @@
 package arduinojavamaven;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 import com.mycompany.arduinojavamaven.*;
 import com.panamahitek.ArduinoException;
+import java.io.IOException;
 import jssc.SerialPortException;
+import manejodedatos.ManejoDatos;
 
 /**
  *
@@ -23,6 +25,19 @@ public class ArduinoTest {
     ConexionArduino conexion = new ConexionArduino(est);
     
     } 
-
     
+    @Test (expected = java.lang.RuntimeException.class)
+    public void ManejoDatosTestFallo(){
+        
+        ManejoDatos.aniadirArchivo(5);
+    
+    }
+    
+    @Test ()
+    public void ManejoDatosTestExcito() throws IOException{
+
+        ManejoDatos.aniadirArchivo("hola");
+    
+    }
+
 }
