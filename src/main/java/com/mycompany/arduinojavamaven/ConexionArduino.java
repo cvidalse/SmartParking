@@ -30,11 +30,8 @@ public class ConexionArduino extends javax.swing.JFrame {
                 if (ph.isMessageAvailable()) {
 
                     String mensaje1 = ph.printMessage();
-                    System.out.println(mensaje1);
 
                     recorrerNumeros(split(mensaje1));
-
-//                    est.actualizarEstado(0, Integer.parseInt(mensaje1));
                 }
             } catch (SerialPortException ex) {
                 Logger.getLogger(ConexionArduino.class.getName()).log(Level.SEVERE, null, ex);
