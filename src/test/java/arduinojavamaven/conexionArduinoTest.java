@@ -17,28 +17,18 @@ import manejodedatos.ManejoDatos;
  *
  * @author Ce
  */
-public class ArduinoTest {
-    
+public class conexionArduinoTest {
+//con la conexion faltando
     @Test (expected = ArduinoException.class)
-    public void ConexionArduinoTest() throws ArduinoException{
+    public void ConexionArduinoTest() throws ArduinoException, ArduinoException{
     Estacionamiento est = new Estacionamiento();
     ConexionArduino conexion = new ConexionArduino(est);
     
     } 
-    
-    @Test (expected = java.lang.RuntimeException.class)
-    public void ManejoDatosTestFallo(){
-        
-        ManejoDatos.aniadirArchivo(5);
-    
-    }
-    
-    @Test ()
-    public void ManejoDatosTestExcito() throws IOException{
-
-        ManejoDatos.aniadirArchivo("hola");
+//con conexion a arduinos
+   public void ConexionArduinoTestCorrecta() throws ArduinoException, ArduinoException{
+    Estacionamiento est = new Estacionamiento();
+    ConexionArduino conexion = new ConexionArduino(est);
     
     }
-    
-
 }

@@ -1,3 +1,8 @@
 A12 Fecha ingreso Thu Aug 09 12:36:03 CLT 2018 Fecha salida Thu Aug 09 12:36:23 CLT 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 20
 A12 Fecha ingreso Thu Aug 09 12:37:25 CLT 2018 Fecha salida Thu Aug 09 12:37:26 CLT 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 1
 hola
+A3 Fecha ingreso Mon Aug 13 14:54:36 CLST 2018 Fecha salida Mon Aug 13 14:54:39 CLST 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 3
+A7 Fecha ingreso Mon Aug 13 14:54:39 CLST 2018 Fecha salida Mon Aug 13 14:54:41 CLST 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 2
+A6 Fecha ingreso Mon Aug 13 14:54:14 CLST 2018 Fecha salida Mon Aug 13 14:54:45 CLST 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 31
+A6 Fecha ingreso Mon Aug 13 14:54:54 CLST 2018 Fecha salida Mon Aug 13 14:54:55 CLST 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 1
+A7 Fecha ingreso Mon Aug 13 14:55:06 CLST 2018 Fecha salida Mon Aug 13 14:55:08 CLST 2018 Su estadia fue de 0 dia(s) con 0 : 0 : 2

@@ -5,7 +5,10 @@ import javax.swing.border.*;
 import com.mycompany.arduinojavamaven.Estacionamiento;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @SuppressWarnings("serial")
 public class GuiEstacionamiento extends JFrame implements ActionListener {
@@ -251,13 +254,22 @@ public class GuiEstacionamiento extends JFrame implements ActionListener {
             }
 
 
-        });
+        });       this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+				JOptionPane.showMessageDialog(contenido,
+					    "Para cerrar el programa debe hacerlo desde la ventana anterior.",
+					    "Información",
+					    JOptionPane.INFORMATION_MESSAGE);		
+			}
+        });   
+    
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         @SuppressWarnings("unused")
-        GuiPrincipal menu = new GuiPrincipal(est);
+                GuiPrincipal menu = new GuiPrincipal(est);
         this.dispose();
     }
 
