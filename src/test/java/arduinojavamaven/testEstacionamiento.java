@@ -19,7 +19,7 @@ public class testEstacionamiento {
 @Test(expected = IndexOutOfBoundsException.class )    
 public  void estacionamientoTest()throws IndexOutOfBoundsException, IOException{
 Estacionamiento est = new Estacionamiento();
-
+//considerando que el limite en esta oportunidad es 21
 est.actualizarEstado(23, 0);
     
 }
