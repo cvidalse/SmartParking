@@ -8,13 +8,14 @@ package com.mycompany.arduinojavamaven;
 import java.awt.SystemColor;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Ce
  */
-public class Estacionamiento {
+public class Estacionamiento extends javax.swing.JFrame {
 
     public ArrayList<Lote> lotes;
     public ArrayList<Boolean> cambio;
@@ -39,10 +40,20 @@ public class Estacionamiento {
 
     }
 
-    public void actualizarEstado(int pos, int valorConexion) throws IOException {//recibe los datos desde coneccion arduino, el pin asociado al numero del lote, y el valor de lectura
-        lotes.get(pos-1).setEstado(valorConexion);
+    public void actualizarEstado(int pos, int valorConexion) throws IndexOutOfBoundsException, IOException {//recibe los datos desde coneccion arduino, el pin asociado al numero del lote, y el valor de lectura
+        try{
+        lotes.get(pos - 1).setEstado(valorConexion);
+        }catch(IndexOutOfBoundsException IO){
+        JOptionPane.showMessageDialog(this,"El pin "+pos+" no esta asociado a un estacionamiento por favor corregir el error y reiniciar el servicio");
+        throw new IndexOutOfBoundsException();
+        }
+             
     }
     
+    
+
+
+
     private void addLoteNombre(String nombre) {
         lotes.add(new Lote(nombre));
     }
