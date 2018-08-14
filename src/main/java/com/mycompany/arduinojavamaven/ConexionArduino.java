@@ -60,7 +60,7 @@ public class ConexionArduino extends javax.swing.JFrame {
     }
 
     private String[] split(String lectura) {//separa los valores de la lectura de cada pin, como solo lee 3 datos esta en este estado
-        valores = lectura.split(" ", 3);
+        valores = lectura.split(" ");
         return valores;
     }
 
